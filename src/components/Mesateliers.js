@@ -40,18 +40,18 @@ export default class Mesateliers extends Component {
                                         <center><h6 class="card-title" id="titre">offre d'emploi</h6></center>
                                         <p class="card-text" id='milieu'>Intitulé du poste: {obj.Titre}</p>
                                         {/* <img width="98%" height="190px" src={'http://localhost:8080/user/' + obj.photo_profil} alt="pdp" /> */}
-                                        <p class="card-text" id='milieu'>Type de contrat: {obj.Description}</p>
-                                        <p class="card-text" id='milieu'>Expérience exigée: {obj.Date}</p>
-                                        <p class="card-text" id='milieu'>Salaire: {obj.HoraireDebut}</p>
-                                        <p class="card-text" id='milieu'>Notre société spécialisée dans {obj.Duree} recherche un(e) {obj.NombrePlacesDispo} pour venir renforcer mes équipes!</p>
+                                        <p class="card-text" id='milieu1'>Type de contrat: {obj.Description}</p>
+                                        <p class="card-text" id='milieu1'>Expérience exigée: {obj.Date}</p>
+                                        <p class="card-text" id='milieu1'>Salaire: {obj.HoraireDebut}</p>
+                                        <p class="card-text" id='milieu1'>Notre société spécialisée dans {obj.Duree} recherche un(e) {obj.NombrePlacesDispo} pour venir renforcer mes équipes!</p>
                                         {/* <p class="card-text" id='milieu'>Place dispo: {obj.NombrePlacesDispo}</p> */}
                                         <p class="card-text" id='milieu'>Pour occuper ce poste,nous aimerons recruter un proffesionel {obj.NombrePlacesRes} titulaire d'un (diplome souhaité) et possedant les compétences suivantes:</p>
-                                        <p class="card-text" id='milieu' onClick={()=>{
+                                        <p class="card-text" id='milieu1' onClick={()=>{
                                             console.log(obj._id);
                                             
                                         }}>Si vous êtes intéressé par cette offre et posssédez toutes les qualités et compétences recherchées,n'hézitez pas à nous envoyer votre CV accompagné d'une lettre de motivation à: {obj.Prix} Ar</p>
-                                        <p id='milieu'>Nous vous répondons dans le plus bref détail</p>
-                                        <p id='milieu'>Pour toute formation complémentaire: tel,e-mail</p>
+                                        <p id='milieu1'>Nous vous répondons dans le plus bref détail</p>
+                                        <p id='milieu1'>Pour toute formation complémentaire: tel,e-mail</p>
                                         <div className="row">
                                             <div className="col-md-6">
                                             <Link to={'/putAtelier/'+obj._id}><button className="btn bg-secondary" id="edit">Edit</button></Link>
