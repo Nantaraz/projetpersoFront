@@ -2,6 +2,7 @@ import React from 'react';
 import {MDBIcon} from 'mdbreact';
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import { connect } from 'react-redux';
 
 class Home extends React.Component {
 
@@ -23,6 +24,14 @@ class Home extends React.Component {
         this.onChange = this.onChange.bind(this)
         this.handleUploadImage = this.handleUploadImage.bind(this);
       }
+        componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            
+        }
+        else{
+            this.props.history.push('/login');
+        }
+    }
       onChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -135,4 +144,9 @@ class Home extends React.Component {
     }
 
 
-export default Home
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export  default connect(mapStateToProps)(Home)

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 // import PDF from 'react-pdf-js';
 
-export default class DossierCandidat extends Component {
+class DossierCandidat extends Component {
 
     constructor(props) {
         super(props);
@@ -20,6 +21,14 @@ export default class DossierCandidat extends Component {
             .catch(function (error) {
                 console.log(error);
             })
+
+        if(this.props.auth.isAuthenticated) {
+            
+        }
+        else{
+            this.props.history.push('/login');
+        }
+       
     }
 
     liste() {
@@ -61,3 +70,9 @@ export default class DossierCandidat extends Component {
         );
     }
 }
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export  default connect(mapStateToProps)(DossierCandidat)

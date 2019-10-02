@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Slider from './Slider'
+import Slider from './Slider';
+import { connect } from 'react-redux';
 
 class OffreEmploi extends Component {
     constructor(props) {
@@ -19,7 +20,12 @@ class OffreEmploi extends Component {
             .catch(function (error) {
                 console.log(error);
             })
-
+	if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/admin');
+        }
+        else{
+            
+        }
     }
 
     liste() {
@@ -104,7 +110,12 @@ class OffreEmploi extends Component {
 //     </div>
                     
 // )}}
-export default OffreEmploi;
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export  default connect(mapStateToProps)(OffreEmploi)
 
       
         

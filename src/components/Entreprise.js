@@ -1,7 +1,17 @@
 
 import React, { Component } from 'react';
 import accas from './accas.jpeg'
+import { connect } from 'react-redux';
 class Entreprise extends Component {
+  componentDidMount() 
+      {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/admin');
+        }
+        else{
+            
+        }
+       }
 
     render() {
         return (
@@ -133,7 +143,13 @@ class Entreprise extends Component {
 </div>
 </div>
 )}}
-export default Entreprise;
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export  default connect(mapStateToProps)(Entreprise)
 
       
         

@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Slider from './Slider'
+import Slider from './Slider';
+import { connect } from 'react-redux';
 
 class Home extends React.Component {
 
@@ -21,6 +22,13 @@ class Home extends React.Component {
             .catch(function (error) {
                 console.log(error);
             })
+	
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/admin'); 
+        }
+        else{
+           
+        }
 
     }
 
@@ -76,4 +84,9 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export  default connect(mapStateToProps)(Home)
